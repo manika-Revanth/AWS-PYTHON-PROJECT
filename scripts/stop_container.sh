@@ -2,4 +2,4 @@
 set -e
 
 # stop the running container (if any)
-echo "Hi"
+sudo docker rm -f $(docker ps -q)
