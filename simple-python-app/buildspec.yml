@@ -11,13 +11,14 @@ phases:
       python: 3.11
   pre_build:
     commands:
-      - echo Logging in to Docker registry...
-      - echo $DOCKER_REGISTRY_PASSWORD | docker login $DOCKER_REGISTRY_URL -u $DOCKER_REGISTRY_USERNAME --password-stdin
+      - echo "Installing dependencies..."
       - pip install -r simple-python-app/requirements.txt
   build:
     commands:
+      - echo "Running Tests"
       - cd simple-python-app
       - echo "Bulding Docker Image"
+      - echo $DOCKER_REGISTRY_PASSWORD | docker login $DOCKER_REGISTRY_URL -u $DOCKER_REGISTRY_USERNAME --password-stdin
       - docker build -t $DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_USERNAME/simple-python-app:latest .
       - docker push $DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_USERNAME/simple-python-app:latest
   post_build:
