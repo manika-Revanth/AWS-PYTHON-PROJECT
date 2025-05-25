@@ -27,4 +27,5 @@ phases:
 artifacts:
   files:
     - '**/*'
+    name: BuildArtif
   base-directory: ../simple-python-app
