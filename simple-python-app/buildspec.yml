@@ -28,4 +28,4 @@ artifacts:
   files:
     - '**/*'
     name: BuildArtif
-  base-directory: ../simple-python-app
+  base-directory: simple-python-app
